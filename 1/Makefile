@@ -11,10 +11,14 @@ ALL_OBJ = $(ALL_SRC:.s=.o)
 	dd if=/dev/zero of=$@ bs=4096 count=4096
 	dd if=$< of=$@ bs=4096 conv=notrunc
 
+build: solution.bin
+
 solution.elf: $(ALL_OBJ)
-	arm-none-eabi-ld -T linker.ld -o $@ $<
+	arm-none-eabi-ld -T linker.ld -o $@ $(ALL_OBJ)
 
 obj: $(ALL_OBJ)
 
 clean:
-	rm -f *.{tbin,bin,elf,o}
+	rm -f *.bin *.tbin *.elf *.o
+
+.PHONY: clean obj build
