@@ -11,9 +11,8 @@ _start:
 			mov r0, #0
 
 			@ r1: data pointer
-			ldr r8, =data
-			ldr r1, [r8]
-
+			ldr r1, =data
+			
 			@ r2: remaining
 			ldr r8, =count
 			ldr r2, [r8]
@@ -50,6 +49,6 @@ test:		bne loop
 			rsblt r3, r3, #0
 			cmp r4, #0
 			rsblt r4, r4, #0
-			add r0, r3, r4		
+			add r5, r3, r4		
 
 stop:		b stop

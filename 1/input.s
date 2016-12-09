@@ -1,6 +1,8 @@
 .global count
 .global data
 
+.align
+
 count:
 .word 147
 

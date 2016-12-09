@@ -3,6 +3,7 @@ input = File.read("input.raw").split(",").map(&:strip)
 File.open("input.s", "w") do |f|
   f.puts(".global count")
   f.puts(".global data")
+  f.puts(".align")
   f.puts("")
   f.puts("count:")
   f.puts(".word #{input.length}")
